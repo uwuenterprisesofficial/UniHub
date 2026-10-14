@@ -1,0 +1,16 @@
+# docker compose up -d   →  http://localhost:8787
+services:
+  unihub:
+    build: .
+    restart: unless-stopped
+    ports: ["8787:8787"]
+    environment:
+      UNIHUB_REGISTER_LIMIT: "10"   # new accounts per address per 10 minutes
+      # Password reset by email (optional; without it the link is printed in the log):
+      # PUBLIC_URL: "https://unihub.example.com"
+      # SMTP_URL: "smtps://user:pass@smtp.example.com:465"
+      # SMTP_FROM: "UniHub <no-reply@example.com>"
+    volumes:
+      - unihub-data:/data           # SQLite database + uploaded files (back this up)
+volumes:
+  unihub-data:

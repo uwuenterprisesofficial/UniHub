@@ -1,0 +1,11 @@
+node_modules
+dist
+server-data
+public/ocr
+public/ort
+
+*.tsbuildinfo
+.env
+.claude/settings.local.json
+.claude/projects/
+graphify-out/
